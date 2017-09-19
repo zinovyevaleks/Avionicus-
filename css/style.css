@@ -1,0 +1,778 @@
+
+/*---------------------------
+    Основные блоки страницы
+----------------------------*/
+body {
+    font-family: 'Roboto', sans-serif;
+    font-weight: 400;
+}
+
+a {
+    color: #67757d;
+    /*text-decoration: none;*/
+}
+
+a:hover {
+    color: #67757d;
+    text-decoration: none;
+}
+
+
+
+header {
+    background: #ffffff;
+    height: 56px;
+}
+
+
+.content {
+    background: #ebeef0;
+    overflow: auto;
+}
+
+.map {
+    height: 560px;
+    background-image: url(../img/map-image.png);
+}
+
+.last-tracks {
+    height: 40px;
+    border-radius: 4px;
+    margin-top: 24px;
+}
+
+
+
+.last-tracks_filter {
+    height: 100px;
+    margin-top: 24px;
+    background: #ffffff;
+    border-radius: 4px;
+    padding-top: 15px;
+}
+
+.all-tracks {
+    background: #ffffff;
+    border-radius: 4px;
+    margin-top: 24px;
+    min-width: 850px;
+}
+
+.clear {
+    height: 24px;
+    background: #ebeef0;
+}
+
+footer {
+    background-color:  #2db578;
+    box-shadow: 0px 0px 20px 0px rgba(0, 0, 0, 0.1);
+    height: 92px;
+}
+
+/*Меню боковое*/
+
+.hidden-menu {
+  display: block;
+  position: fixed;
+  list-style:none;
+  margin: 0;
+  box-sizing: border-box;
+  width: 216px;
+  background-color: #ffffff;
+  height: 100%;
+  top: 0;
+  left: -216px;
+  transition: left .2s;
+  z-index: 1;
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+}
+
+.list-group-item img {
+    margin-right: 12px;
+}
+
+.list-group-item a {
+    position: absolute;
+    left: 58px;
+}
+
+.friends {
+    position: relative;
+    left: 2px;
+}
+
+.pin {
+    position: relative;
+    left: 2px;
+}
+
+.hidden-menu-ticker {
+  display: none;
+}
+
+.hidden-menu_header {
+    padding: 5px 0 0 10px;
+    background-color:  #2db578;
+    height: 56px;
+    padding: 16px 0 0 16px;
+}
+
+.hidden-menu_header img {
+    float: left;
+    margin-right: 16px;
+}
+
+.hidden-menu_header p {
+    margin-top: -8px;
+    color:  #fefefe;
+    font-size: 30px;
+}
+
+
+.list-group-item {
+    border: none;
+}
+
+.list-group-item:hover     {
+    background-color:  #d5f0e4;
+}
+
+.list-group-item.active, .list-group-item.active:hover {
+    background-color:  #d5f0e4;
+    border-color: #d5f0e4;
+}
+
+sup {
+    color: #2db578;
+    font-size: 12px;
+    font-weight: 400;
+}
+
+/*кнопка-сэндвич*/
+.btn-menu {
+  color: #ffffff;
+  padding: 5px;
+  position: fixed;
+  top: 14px;
+  left: 5px;
+  cursor: pointer;
+  transition: left .23s;
+  z-index: 1;
+  width: 25px;
+  -webkit-transform: translateZ(0);
+  -webkit-backface-visibility: hidden;
+}
+.btn-menu span {
+  display: block;
+  height: 2px;
+  background-color: #67757d;
+  margin: 5px 0 0;
+  transition: all .1s linear .23s;
+  position: relative;
+}
+
+.btn-menu span.first {
+  margin-top: 0;
+}
+
+/*Магия*/
+
+.hidden-menu-ticker:checked ~ .btn-menu {
+  left: 216px
+}
+.hidden-menu-ticker:checked ~ .hidden-menu {
+  left: 0;
+}
+
+/*Шапка*/
+
+.top-menu {
+    position: absolute;
+    right: 15px;
+    margin-top: 4px;
+}
+
+.btn-link {
+    color: #67757d;
+    outline: none;
+}
+
+.btn-link:hover {
+    color: #67757d;
+    text-decoration: none;
+    outline: none;
+}
+
+/*Фильтр*/
+
+.filter-btn {
+    width: 109px;
+    height: 32px;
+    padding-top: 4px;
+    border-radius: 15px;
+    margin-left: 91%;
+    margin-top: -45px;
+    background-color:  #ffffff;
+    box-shadow: 3px 5px 17px 0px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    vertical-align: middle;
+    position: relative;
+    top: -30px;
+}
+
+.filter-btn a {
+    color:  #2db578;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: left;
+
+}
+
+.last-tracks_filter p {
+    float: left;
+    color:  #90a4af;
+    font-size: 16px;
+    font-weight: 500;
+    text-align: left;
+}
+
+.last-tracks_first {
+    color:  #2db578;
+    font-size: 24px;
+} /*Не делать float*/
+
+.last-tracks_second {
+    color:  #90a4af;
+    font-size: 16px;
+    font-weight: 400;
+    text-align: left;
+    position: relative;
+    left: 206px;
+    top: -30px;
+    width: 90px;
+}
+
+.type {
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    width: 50%;
+    outline:none;
+    border: none;
+    margin: 0 0 0 8px;
+    color: #67757d;
+    font-size: 16px;
+    background-color:  #ffffff;
+}
+
+/*Чекбоксы*/
+
+input[class="checkbox"], input[class="checkbox2"]  {
+    display: none;
+}
+
+
+
+input[class="checkbox"] + label::before {
+    content: "";
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    background: url("../uncheck-icon.png");
+}
+
+input[class="checkbox2"] + label::before {
+    content: "";
+    display: inline-block;
+    height: 20px;
+    width: 20px;
+    background: url("../uncheck-icon.png");
+}
+
+
+input[class="checkbox"]:checked + label::before {
+    background: url("../check-icon.png");
+}
+
+
+input[class="checkbox2"]:checked + label::before {
+    background: url("../check-icon2.png");
+}
+
+
+
+.checkbox_comment {
+    margin: 2px 0 0 16px;
+}
+
+.checkbox_puls {
+    margin: 0px 0 0 29px;
+}
+
+.checkbox_track {
+    margin: 8px 0 0 0;
+}
+
+
+/*Бегунки фильтра*/
+
+.value {
+    background-color:  #e7ebed;
+    width: 50px;
+    height: 20px;
+    float: left;
+    margin-top: 1px;
+    margin-right: 8px;
+    border-radius: 15px;
+    text-align: center;
+    color: #67757d;
+
+}
+
+#out1, #out2 {
+    background-color:  #e7ebed;
+    width: 50px;
+    height: 20px;
+    margin-top: 1px;
+    padding-top: 0px;
+    text-align: center;
+    margin-left: 15px;
+    border-radius: 15px;
+    color: #67757d;
+  }
+
+  output {
+      display: grid;
+  }
+
+
+#ran1, #ran2 {
+    -webkit-appearance: none;
+    width: 60%;
+    height: 1px;
+    background: #2db578;
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-right: 8px;
+    float: left;
+    outline: none;
+}
+
+#ran1::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    background:  #2BC671;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+#ran2::-webkit-slider-thumb {
+    -webkit-appearance: none;
+     width: 15px;
+     height: 15px;
+     background:  #2BC671;
+     border-radius: 10px;
+    cursor: pointer;
+}
+
+/*Стилизация для FireFox*/
+
+#ran1::-moz-range-track {
+    -webkit-appearance: none;
+    width: 60%;
+    height: 1px;
+    background: #2db578;
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-right: 8px;
+    float: left;
+    outline: none;
+}
+
+#ran2::-moz-range-track {
+    -webkit-appearance: none;
+    width: 60%;
+    height: 1px;
+    background: #2db578;
+    border-radius: 4px;
+    margin-top: 10px;
+    margin-right: 8px;
+    float: left;
+    outline: none;
+}
+
+#ran1::-moz-range-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    background:  #2BC671;
+    border-radius: 10px;
+    border-color: #2BC671;
+    cursor: pointer;
+}
+
+#ran2::-moz-range-thumb {
+    -webkit-appearance: none;
+    width: 15px;
+    height: 15px;
+    background:  #2BC671;
+    border-radius: 10px;
+    border-color: #2BC671;
+    cursor: pointer;
+}
+
+.find {
+    color: #90a4af;
+    margin-left: 60px;
+    border-radius: 15px;
+    box-shadow: 3px 5px 17px 0px rgba(0, 0, 0, 0.2);
+    outline: none;
+}
+
+
+/*Карта*/
+
+.icon1 {
+    position: absolute;
+    margin-top: 19px;
+    margin-left: 10px;
+}
+
+.icon2 {
+    position: absolute;
+    margin-top: 426px;
+    margin-left: 10px;
+}
+
+.icon3 {
+    position: absolute;
+    margin-top: 490px;
+    margin-left: 10px;
+}
+
+.icon4 {
+    position: absolute;
+    margin-top: 19px;
+    margin-left: 93%;
+}
+
+.icon5 {
+    position: absolute;
+    margin-top: 196px;
+    margin-left: 93%;
+}
+
+/*Таблица треков*/
+
+.divTable{
+	display: table;
+	width: 100%;
+}
+
+.divTableRow {
+	display: table-row;
+    height: 48px;
+}
+
+
+.divTableCell {
+	display: table-cell;
+    vertical-align: middle;
+}
+
+.divTableBody {
+	display: table-row-group;
+}
+
+.divTable .number {
+    color:  #2db578;
+}
+
+.thead {
+    color:  #90a4af;
+    font-size: 14px;
+    font-weight: 500;
+    text-align: left;
+    margin-top: 15px;
+    float: left;
+}
+
+.divTable .caret {
+    margin-top: 23px;
+    margin-left: 8px;
+    margin-right: -7px;
+    color:  #90a4af;
+}
+
+.digits {
+    color:  #67757d;
+    font-size: 13px;
+    font-weight: 400;
+    margin-bottom: 0px;
+}
+
+
+.icon-type {
+    background-image: url(../tracks_icns/walk-icon.png);
+    background-repeat: no-repeat;
+    width: 24px;
+    height: 21px;
+    margin-left: 2px;
+}
+
+.icon-type-selected {
+    background-image: url(../tracks_icns/walk-icon2.png);
+}
+
+
+.icon-access {
+    background-image: url(../tracks_icns/earth-icon.png);
+    background-repeat: no-repeat;
+    width: 20px;
+    height: 20px;
+    margin-left: 14px;
+}
+
+.icon-access-selected {
+    background-image: url(../tracks_icns/earth-icon2.png);
+}
+
+/*Иконки в последних ячейках таблицы*/
+
+.share-icons {
+    width: 120px;
+    height: 20px;
+    margin-left: 10px;
+}
+
+.share-icons-selected {
+    background-image: url(../tracks_icns/share.png);
+    width: 120px;
+    height: 20px;
+    margin-left: 10px;
+}
+
+/*Пагинатор*/
+
+.pagination {
+    float: left;
+    margin-bottom: 0px;
+}
+
+.pagination div {
+    text-align: center;
+    float: left;
+}
+
+.first {
+    margin: 0px 25px 0 4px;
+}
+
+.prev {
+    margin-right: 20px;
+}
+
+.pages {
+    margin-right: 7px;
+    height: 56px;
+}
+
+.next {
+    margin-left: 13px;
+}
+
+.last  {
+    margin-left: 25px;
+}
+
+.track_type {
+    margin-top: 20px;
+    margin-left: 227px;
+}
+
+.track_type p {
+    float: left;
+    color:  #67757d;
+    font-size: 14px;
+    font-weight: 400;
+    text-align: left;
+}
+
+.pagination>.active>a {
+    color:  #2db578;
+    background-color:  #ffffff;
+}
+
+.type_select {
+    -webkit-appearance:none;
+    -moz-appearance:none;
+    appearance:none;
+    width: 30px;
+    outline:none;
+    border: none;
+    margin: 0 0 0 8px;
+    color: #67757d;
+    font-size: 14px;
+    background-color:  #ffffff;
+}
+
+ /*Подвал*/
+
+ footer div {
+     float: left;
+     text-align: left;
+     margin-top: 35px;
+ }
+
+ footer p {
+     font-family: Roboto;
+     color:  #ffffff;
+     font-size: 16px;
+     font-weight: 400;
+
+ }
+
+ .one {
+
+ }
+
+
+padding: 40px 47px 48px;
+/*Дополнительная адаптация*/
+
+@media screen and (max-width: 414px) {
+    .hid  {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .filter-btn  {
+        margin-left: 89%;
+    }
+
+}
+
+@media screen and (max-width: 991px) {
+
+    .icon4, .icon5{
+        margin-left: 91%;
+    }
+
+    .filter-btn  {
+        margin-left: 85%;
+    }
+
+    .last-tracks_filter {
+        height: 320px;
+}
+
+
+    #ran1, #ran2 {
+        width: 75%;
+    }
+
+    .checkbox_comment {
+        margin: 0 0 15px 16px;
+    }
+
+    .checkbox_puls {
+        margin: 0 0 15px 32px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+
+    #ran1, #ran2 {
+        width: 70%;
+    }
+
+    .checkbox_comment {
+        margin: 15px 0 15px 16px;
+    }
+
+    .checkbox_puls {
+        margin: 15px 0 15px 32px;
+    }
+
+    .last-tracks_filter p {
+        margin-top: 15px;
+    }
+
+}
+
+@media screen and (max-width: 870px) {
+
+    .empty {
+        display: none;
+    }
+}
+
+@media screen and (max-width: 740px) {
+
+    #ran1, #ran2 {
+        width: 70%;
+    }
+}
+
+@media screen and (max-width: 624px) {
+
+    #ran1, #ran2 {
+        width: 60%;
+    }
+}
+
+@media screen and (max-width: 620px) {
+    .filter-btn  {
+        margin-left: 82%;
+    }
+
+    .icon4, .icon5 {
+        margin-left: 88%;
+    }
+}
+
+
+@media screen and (max-width: 560px) {
+    .filter-btn  {
+        margin-left: 75%;
+    }
+    .icon4, .icon5 {
+        margin-left: 88%;
+    }
+}
+
+@media screen and (max-width: 480px) {
+
+    #ran1, #ran2 {
+        width: 50%;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .filter-btn  {
+        margin-left: 70%;
+    }
+    .icon4, .icon5 {
+        margin-left: 80%;
+    }
+}
+
+@media screen and (max-width: 380px) {
+    .icon4, .icon5 {
+        margin-left: 78%;
+    }
+
+
+    .filter-btn  {
+        margin-left: 0%;
+        margin-top: 10px;
+    }
+    .last-tracks {
+        height: 70px;
+        border-radius: 4px;
+        margin-top: 24px;
+    }
+}

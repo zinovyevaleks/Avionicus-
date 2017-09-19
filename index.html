@@ -1,0 +1,554 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Avionicus</title>
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <link rel="shortcut icon" href="favicon.ico" type="image/ico">
+</head>
+
+
+<body>
+    <!-- Меню -->
+    <input type="checkbox" id="hmt" class="hidden-menu-ticker">
+    <label class="btn-menu" for="hmt">
+        <span class="first"></span>
+        <span class="second"></span>
+        <span class="third"></span>
+    </label>
+    <div class="hidden-menu">
+        <div class="hidden-menu_header">
+            <img src="logo.png" alt="#">
+            <p>Avionicus</p>
+        </div>
+        <div class="acc list-group">
+            <div class="list-group-item">
+                <img src="menu icns/dashboard-icon.png" alt="">
+                <a href="#">Личный кабинет</a>
+            </div>
+            <div class="list-group-item">
+                <img src="menu icns/쥳sages-icon.png" alt="">
+                <a href="#">Сообщения</a>
+            </div>
+            <div class="list-group-item">
+                <img src="menu icns/friends-icon.png" alt="" class="friends">
+                <a href="#">Друзья</a>
+            </div>
+        </div>
+        <div class="stats list-group">
+            <div class="list-group-item">
+                <img src="menu icns/statistics-icon.png" alt="">
+                <a href="#">Моя статистика</a></li>
+            </div>
+            <div class="list-group-item active">
+                <img src="menu icns/tracks-icon.png" alt="" class="pin">
+                <a href="#">Мои треки</a>
+            </div>
+            <div class="list-group-item">
+                <img src="menu icns/search-icon.png" alt="">
+                <a href="#">Поиск треков</a>
+            </div>
+            <div class="list-group-item">
+                <img src="menu icns/events-icon.png" alt="">
+                <a href="#">События</a>
+            </div>
+            <div class="list-group-item">
+                <img src="menu icns/gps-icon.png" alt="">
+                <a href="#">GPS-трекеры</a>
+            </div>
+        </div>
+        <div class="online list-group">
+            <div class="list-group-item">
+                <img src="menu icns/online-icon.png" alt="">
+                <a href="#">Онлайн<sup>1</sup></a>
+            </div>
+            <div class="list-group-item">
+                <img src="menu icns/users-icon (1).png" alt="">
+                <a href="#">Пользователи</a>
+            </div>
+
+
+        </div>
+    </div>
+
+<!-- Контент страницы     -->
+    <div class="bs-cont">
+
+        <header>
+            <div class="top-menu">
+                <div class="btn-group" role="group" aria-label="...">
+                    <div class="btn-group" role="group">
+                        <button type="button" class="btn btn-link dropdown-toggle hid" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Русский
+                            <span class="caret"></span>
+                        </button>
+                        <ul class="dropdown-menu">
+                            <li><a href="#">Dropdown link</a></li>
+                            <li><a href="#">Dropdown link</a></li>
+                        </ul>
+                    </div>
+
+                    <button type="button" class="btn btn-link hid"><img src="menu icns/쥳sages-icon.png" alt=""></button>
+                    <button type="button" class="btn btn-link hid"><img src="menu icns/notifications-icon.png" alt=""></button>
+                </div>
+
+                <img src="user-avatar.png" alt="Ava" class="hid">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Sasha
+                        <span class="caret"></span>
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-right">
+                        <li><a href="#">Настройки</a></li>
+                        <li><a href="#">Выход</a></li>
+                    </ul>
+                </div>
+
+            </div>
+
+
+        </header>
+
+        <div class="content"><!--основное содержимое-->
+            <div class="map">
+                    <img src="map icns/layers.png" alt="" class="icon1">
+                    <img src="map icns/names.png" alt="" class="icon2">
+                    <img src="map icns/play track.png" alt="" class="icon3">
+                    <img src="map icns/full screen.png" alt="" class="icon4">
+                    <img src="map icns/scale.png" alt="" class="icon5">
+
+
+            </div>
+
+
+            <!-- Последние треки -->
+
+            <div class="last-tracks container">
+                        <p class="last-tracks_first">Последние треки</p>
+                        <p class="last-tracks_second">390 всего</p>
+                        <div class="filter-btn">
+                          <a href="#" onclick="anichange('#filter'); return false">Фильтр
+                          <img src="filter-icon.png" alt="#">
+                          </a>
+                </div>
+
+            </div>
+
+            <!-- Фильтр выезжающий -->
+            <div id="filter" style="display: none">
+                <div class="container last-tracks_filter">
+                    <div class="row">
+                      <div class="col-md-2 col-sm-12 col-xs-12">
+                          <p>Тип:</p>
+                          <select class="type">
+                             <option>Все</option>
+                             <option>2</option>
+                             <option>3</option>
+                             <option>4</option>
+                             <option>5</option>
+                          </select>
+                      </div>
+                      <div class="col-md-2 col-sm-12 col-xs-12">
+                          <p class="text-nowrap">Расстояние(км):</p>
+                      </div>
+                      <div class="col-md-4 col-sm-8 col-xs-12">
+                          <div class="value">0</div>
+                          <input oninput="out1.value=(ran1.value)" id="ran1" class="ranger" type="range" min="0" max="100" value="60">
+                          <output id="out1">60</output>
+                      </div>
+                      <div class="col-md-4 col-sm-4 col-xs-12">
+                          <p>Комментарий</p>
+                          <input id="my_check" type="checkbox" class="checkbox"/>
+                          <label for="my_check" class="checkbox_comment"></label>
+                      </div>
+                    </div>
+                    <div class="row">
+                      <div class="col-md-2 col-sm-2 hidden-xs"></div>
+                      <div class="col-md-2 col-sm-12 col-xs-12"><p class="text-nowrap">Ср.скорость(Км/ч):</p></div>
+                      <div class="col-md-4 col-sm-8 col-xs-12">
+                          <div class="value">0</div>
+                          <input oninput="out2.value=(ran2.value)" id="ran2" class="ranger" type="range" min="0" max="100" value="60">
+                          <output id="out2">60</output>
+                      </div>
+                      <div class="col-md-4 col-sm-4 col-xs-12">
+                          <p>Пульсометр</p>
+                          <input id="my_check2" type="checkbox" class="checkbox"/>
+                          <label for="my_check2" class="checkbox_puls"></label>
+                          <button type="button" class="btn btn-default find">Найти</button>
+                      </div>
+                    </div>
+                </div>
+
+                <!--конец фильтра-->
+            </div>
+
+
+            <div class="container all-tracks">
+                    <div class="divTable">
+                        <div class="divTableBody">
+                            <div class="divTableRow">
+                                <div class="divTableCell">
+                                    <input id="all_check" type="checkbox" class="checkbox2"/>
+                                    <label for="all_check" class="checkbox_track"></label>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="number thead">№</p>
+                                    <span class="caret number"></span>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="thead">Начало</p>
+                                    <span class="caret"></span>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="thead">Длительность</p>
+                                    <span class="caret"></span>
+                                </div>
+                                <div class="divTableCell">
+                                    <p  class="thead">Расстояние</p>
+                                    <span class="caret"></span>
+                                </div>
+                                <div class="divTableCell">
+                                    <p  class="thead">Ср.скорость</p>
+                                    <span class="caret"></span>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="thead">Тип</p>
+                                    <span class="caret"></span>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="thead">Доступ</p>
+                                    <span class="caret"></span>
+                                </div>
+                                <div class="divTableCell" style="width: 110px;">
+                                    <p class="thead">Комментарий</p>
+                                    <span class="caret"></span></div>
+                                <div class="divTableCell" style="width: 120px;"></div>
+                                <!-- <div class="divTableCell" style="width: 40px;"></div>
+                                <div class="divTableCell" style="width: 40px;"></div>
+                                <div class="divTableCell" style="width: 40px;"></div> -->
+                            </div>
+                            <div class="divTableRow">
+                                <div class="divTableCell">
+                                    <input  class="checkbox2" id="my_check3" type="checkbox"/>
+                                    <label for="my_check3" class="checkbox_track"></label>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="digits">1</p>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="digits">
+                                        08.04 <br>
+                                        15:09
+                                    </p>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="digits">
+                                        1:03:05
+                                    </p>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="digits">
+                                        6.8 км
+                                    </p>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="digits">
+                                        6 км/ч
+                                    </p>
+                                </div>
+                                <div class="divTableCell">
+                                    <div class="icon-type"></div>
+                                </div>
+                                <div class="divTableCell">
+                                    <div class="icon-access"></div>
+                                </div>
+                                <div class="divTableCell">
+                                    Текст
+                                </div>
+                                <div class="divTableCell" style="width: 120px;">
+                                    <div class="share-icons"></div>
+                                </div>
+                            </div>
+                            <div class="divTableRow">
+                                <div class="divTableCell">
+                                    <input id="my_check4" type="checkbox" class="checkbox2"/>
+                                    <label for="my_check4" class="checkbox_track"></label>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="digits">2</p>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="digits">
+                                        08.04 <br>
+                                        15:09
+                                    </p>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="digits">
+                                        1:03:05
+                                    </p>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="digits">
+                                        6.8 км
+                                    </p>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="digits">
+                                        6 км/ч
+                                    </p>
+                                </div>
+                                <div class="divTableCell">
+                                    <div class="icon-type"></div>
+                                </div>
+                                <div class="divTableCell">
+                                    <div class="icon-access"></div>
+                                </div>
+                                <div class="divTableCell">
+                                    Текст
+                                </div>
+                                <div class="divTableCell" style="width: 120px;">
+                                    <div class="share-icons"></div>
+                                </div>
+
+                            </div>
+                            <div class="divTableRow">
+                                <div class="divTableCell">
+                                    <input id="my_check5" type="checkbox" class="checkbox2"/>
+                                    <label for="my_check5" class="checkbox_track"></label>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="digits">3</p>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="digits">
+                                        08.04 <br>
+                                        15:09
+                                    </p>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="digits">
+                                        1:03:05
+                                    </p>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="digits">
+                                        6.8 км
+                                    </p>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="digits">
+                                        6 км/ч
+                                    </p>
+                                </div>
+                                <div class="divTableCell">
+                                    <div class="icon-type"></div>
+                                </div>
+                                <div class="divTableCell">
+                                    <div class="icon-access"></div>
+                                </div>
+                                <div class="divTableCell">
+                                    Текст
+                                </div>
+                                <div class="divTableCell" style="width: 120px;">
+                                    <div class="share-icons"></div>
+                                </div>
+                            </div>
+                            <div class="divTableRow bg-changed">
+                                <div class="divTableCell">
+                                    <input id="my_check6" type="checkbox" class="checkbox2"/>
+                                    <label for="my_check6" class="checkbox_track"></label>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="digits">4</p>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="digits">
+                                        08.04 <br>
+                                        15:09
+                                    </p>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="digits">
+                                        1:03:05
+                                    </p>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="digits">
+                                        6.8 км
+                                    </p>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="digits">
+                                        6 км/ч
+                                    </p>
+                                </div>
+                                <div class="divTableCell">
+                                    <div class="icon-type"></div>
+                                </div>
+                                <div class="divTableCell">
+                                    <div class="icon-access"></div>
+                                </div>
+                                <div class="divTableCell">
+                                    Текст
+                                </div>
+                                <div class="divTableCell" style="width: 120px;">
+                                    <div class="share-icons"></div>
+                                </div>
+                            </div>
+                            <div class="divTableRow">
+                                <div class="divTableCell">
+                                    <input id="my_check7" type="checkbox" class="checkbox2"/>
+                                    <label for="my_check7" class="checkbox_track"></label>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="digits">5</p>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="digits">
+                                        08.04 <br>
+                                        15:09
+                                    </p>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="digits">
+                                        1:03:05
+                                    </p>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="digits">
+                                        6.8 км
+                                    </p>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="digits">
+                                        6 км/ч
+                                    </p>
+                                </div>
+                                <div class="divTableCell">
+                                    <div class="icon-type"></div>
+                                </div>
+                                <div class="divTableCell">
+                                    <div class="icon-access"></div>
+                                </div>
+                                <div class="divTableCell">
+                                    Текст
+                                </div>
+                                <div class="divTableCell" style="width: 120px;">
+                                    <div class="share-icons"></div>
+                                </div>
+                            </div>
+                            <div class="divTableRow">
+                                <div class="divTableCell">
+                                    <input id="my_check8" type="checkbox" class="checkbox2"/>
+                                    <label for="my_check8" class="checkbox_track"></label>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="digits">6</p>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="digits">
+                                        08.04 <br>
+                                        15:09
+                                    </p>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="digits">
+                                        1:03:05
+                                    </p>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="digits">
+                                        6.8 км
+                                    </p>
+                                </div>
+                                <div class="divTableCell">
+                                    <p class="digits">
+                                        6 км/ч
+                                    </p>
+                                </div>
+                                <div class="divTableCell">
+                                    <div class="icon-type"></div>
+                                </div>
+                                <div class="divTableCell">
+                                    <div class="icon-access"></div>
+                                </div>
+                                <div class="divTableCell">
+                                    Текст
+                                </div>
+                                <div class="divTableCell" style="width: 120px;">
+                                    <div class="share-icons"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                    <div class="pagination">
+                        <div class="first">
+                            <a href="#">
+                                <img src="page icns/first-page-icon.png" alt="Первая">
+                            </a>
+                        </div>
+                        <div class="prev">
+                            <a href="#">
+                                <img src="page icns/previous-page-icon.png" alt="Предыдущая">
+                            </a>
+                        </div>
+
+                        <!-- страницы -->
+                        <div class="pages active"><a href="#">1</a></div>
+                        <div class="pages"><a href="#">2</a></div>
+                        <div class="pages"><a href="#">3</a></div>                        <!-- страницы -->
+                        <div class="pages"><a href="#">4</a></div>
+                        <div class="pages"><a href="#">5</a></div>
+
+                        <div class="next">
+                            <a href="#"><img src="page icns/next-page-icon.png" alt="Следующая">
+                            </a>
+                        </div>
+                        <div class="last">
+                            <a href="#"><img src="page icns/last-page-icon.png" alt="Последняя">
+                            </a>
+                        </div>
+                    </div>
+                    <div class="track_type">
+                        <p>Треков на странице:</p>
+                        <select class="type_select">
+                           <option>1</option>
+                           <option>2</option>
+                           <option>3</option>
+                           <option>4</option>
+                           <option>5</option>
+                        </select>
+                    </div>
+            </div> <!--Конец all-tracks-->
+    </div> <!--Конец content-->
+
+
+    <div class="clear"></div>
+
+    <footer>
+        <div class="col-lg-2 col-md-2 col-sm-3">
+            <p class="text-right">&copy 2017 Avionicus</p>
+        </div>
+        <div class="col-lg-2 col-lg-offset-5 col-md-2 col-md-offset-4 col-sm-4 ">
+            <p class="text-right">info@avionius.ru</p>
+        </div>
+        <div class="col-lg-3 col-md-4 col-sm-5">
+            <p>Политика конфиденциальности</p>
+        </div>
+    </footer>
+
+    </div>
+
+
+
+<script src="js/jquery-3.2.1.min.js"></script>
+<script src="js/bootstrap.min.js"></script>
+<script src="js/main.js"></script>
+</body>
+</html>
